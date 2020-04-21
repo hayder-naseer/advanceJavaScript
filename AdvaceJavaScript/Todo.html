@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+  <head>
+    <title>TODO List</title>
+  </head>
+
+  <body>
+    <input type="text" id="myInput" placeholder="Title..." />
+    <span onclick="newElement()" class="addBtn">Add</span>
+    <div id="app"></div>
+
+  </body>
+  <script>
+ 
+  var  datas=["Haider","Kamboh","naseer"];
+  
+  function deleteElement() {
+  var x = document.querySelectorAll("button");
+  var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].onclick = function () {
+          var div = this.parentElement;
+          div.style.display = "none";
+        };
+      }
+  }
+  function newElement() {
+  var inputValue = myInput.value;
+if (inputValue === "")
+{}
+else
+{
+  datas.push(inputValue)
+  mapElements();
+}
+deleteElement();
+}
+mapElements();
+deleteElement();
+
+
+function mapElements() {
+var app = document.querySelector('#app');
+app.innerHTML = '<ul>' + datas.map(function (data) {
+    return '<div class ="close"><input type="checkbox">' + data +'<button type="delete"  onclick="deleteElement()"> Delete... </button>'+'<br></div>';
+}).join('') + '</ul>';
+}
+  </script>
+</html>

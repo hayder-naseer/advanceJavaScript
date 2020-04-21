@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+  <head>
+    <title>Object List</title>
+  </head>
+
+  <body>
+    <span onclick="newElement()" class="addBtn"></span>
+    <div id="app"></div>
+    <input onclick="Submit()"type="submit">
+  </body>
+  <script>
+ 
+  const datas = [
+    { "label": 'username',
+    "placeholder":'First '},
+    { "label": 'emaiAdress',
+    "placeholder":'Last'},
+    { "label": 'confirmEmaiAdress',
+    "placeholder":'Email'},
+    { "label": 'confirmEmail',
+    "placeholder":'Confirm'},
+    { "label": 'password',
+    "placeholder":'Password'},
+    { "label": 'confirmPassword',
+    "placeholder":'Confirm'},
+];
+function newElement() {
+}
+mapElements();
+
+
+
+function mapElements() {
+var app = document.querySelector('#app');
+app.innerHTML = '<ul>' + datas.map(function (data) {
+   var  id=data.label;
+    placeholder=data.placeholder
+    return `<input type="text" id=${id} placeholder=${placeholder} required ><br>`;
+}).join('')+'<input type="submit">' + '</ul>';
+}
+function Submit()
+{
+ console.log(id)
+}
+  </script>
+</html>
